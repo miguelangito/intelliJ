@@ -48,7 +48,7 @@ public class Main {
         );
 
 
-        System.out.println("Ingresar fondos");
+        /*System.out.println("Ingresar fondos");
 
 
         int option;
@@ -79,7 +79,9 @@ public class Main {
                     break;
             }
 
-        } while (option != 4);
+        } while (option != 4);*/
+
+
 
     }
 }
