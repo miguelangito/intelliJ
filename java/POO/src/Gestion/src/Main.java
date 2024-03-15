@@ -7,7 +7,9 @@ public class Main {
 
         Scanner objScanner = new Scanner(System.in);
         GestionCurso objGestion = new GestionCurso();
-
+        String codigo2 = objScanner.next();
+        String nombre = objScanner.next();
+        Curso curso2 = new Curso(codigo2,nombre);
 
         int option = 0;
 
@@ -71,8 +73,19 @@ public class Main {
                                 if (curso == null) {
                                     System.out.println("Curso no encontrado");
                                 } else {
-                                    curso.listarEstudiantes();
+                                    curso.guardarEstudiante(objScanner);
                                 }
+                                break;
+
+                            case 2:
+
+                                System.out.println("Ingresa el codigo del estudiante a eliminar");
+                                curso2.listarEstudiantes();
+                                curso2.eliminarEstudiantes(objScanner);
+                                break;
+                            case 3:
+                                System.out.println("Lista de estudiantes");
+                                curso2.listarEstudiantes();
                                 break;
                         }
                     } while (option3 != 4);

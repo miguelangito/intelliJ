@@ -1,3 +1,5 @@
+package Ejercicios_POO_parte2_1;
+
 import java.util.Scanner;
 
 public class Gestion {
@@ -55,7 +57,7 @@ public class Gestion {
 
     @Override
     public String toString() {
-        return "Gestion{" +
+        return "Ejercicios_POO_parte2_1.Gestion{" +
                 "nombre='" + nombre + '\'' +
                 ", posicion='" + posicion + '\'' +
                 ", salario=" + salario +

@@ -1,3 +1,5 @@
+package Ejercicios_POO_parte2_1;
+
 public class Libro {
 
     //Atributos
@@ -55,7 +57,7 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro{" +
+        return "Ejercicios_POO_parte2_1.Libro{" +
                 "titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +
                 ", publicacion='" + publicacion + '\'' +

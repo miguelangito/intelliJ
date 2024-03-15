@@ -1,3 +1,5 @@
+package Ejercicios_POO_parte2_1;
+
 import javax.swing.*;
 import java.util.Scanner;
 
@@ -11,7 +13,7 @@ public class Main {
                 false);
 
 
-/*        System.out.println(objLibro.getTitulo());
+        System.out.println(objLibro.getTitulo());
 
         objLibro.setTitulo("El rastro de tu sangre en la nieve");
 
@@ -21,7 +23,7 @@ public class Main {
 
         objLibro.setPrestado(true);
 
-        System.out.println(objLibro.getPrestado());*/
+        System.out.println(objLibro.getPrestado());
 
         Gestion objGestion = new Gestion(
                 "miguel",
@@ -30,7 +32,7 @@ public class Main {
                 1
         );
 
-/*      Scanner objScanner = new Scanner(System.in);
+      Scanner objScanner = new Scanner(System.in);
 
         System.out.println("Ingrese el porcentaje que quiere aumentar en base al salario" +
                 "salario actual: " + objGestion.getSalario());
@@ -39,7 +41,7 @@ public class Main {
 
         objGestion.aumentarSalario(aumSalario);
 
-        System.out.println(objGestion.getSalario());*/
+        System.out.println(objGestion.getSalario());
 
 
         Banco objBanco = new Banco(
@@ -48,7 +50,7 @@ public class Main {
         );
 
 
-        /*System.out.println("Ingresar fondos");
+        System.out.println("Ingresar fondos");
 
 
         int option;
@@ -79,7 +81,7 @@ public class Main {
                     break;
             }
 
-        } while (option != 4);*/
+        } while (option != 4);
 
 
 

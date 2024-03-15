@@ -1,3 +1,5 @@
+package Ejercicios_POO_parte2_1;
+
 public class Banco {
 
     private String titular;
@@ -39,7 +41,7 @@ public class Banco {
 
     @Override
     public String toString() {
-        return "Banco{" +
+        return "Ejercicios_POO_parte2_1.Banco{" +
                 "titular='" + titular + '\'' +
                 ", salario=" + salario +
                 '}';

@@ -1,4 +1,4 @@
-package Ejercicios_POO_parte2;
+package Ejercicios_POO_parte2_3;
 
 public class Main {
 
