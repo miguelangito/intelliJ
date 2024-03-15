@@ -33,7 +33,7 @@ public class Curso {
 
     public void listarEstudiantes() {
         if (this.listaEstudiantes.isEmpty()) {
-            System.out.println("el curso".concat(this.nombre).concat("No tiene estudiantes"));
+            System.out.println("el curso: ".concat(this.nombre).concat("No tiene estudiantes"));
         } else {
             System.out.println("Lista de estudiantes");
             for (Estudiante estudiante : this.listaEstudiantes) {
@@ -44,7 +44,7 @@ public class Curso {
 
     public void eliminarEstudiantes(Scanner objScanner) {
         this.listarEstudiantes();
-        System.out.println("Ingrese el ID");
+        System.out.println("Ingrese el ID: ");
         int pedirId = objScanner.nextInt();
         this.listaEstudiantes.removeIf(estudiante -> estudiante.getId() == pedirId);
     }

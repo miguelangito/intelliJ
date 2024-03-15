@@ -1,13 +1,11 @@
-import java.util.Scanner;
-
-public class Gestion {
+public class Gestionador {
 
     private String nombre;
     private String posicion;
     private double salario;
     private int id;
 
-    public Gestion(String nombre, String posicion, double salario, int id) {
+    public Gestionador(String nombre, String posicion, double salario, int id) {
         this.nombre = nombre;
         this.posicion = posicion;
         this.salario = salario;

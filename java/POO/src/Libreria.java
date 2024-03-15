@@ -1,4 +1,4 @@
-public class Libro {
+public class Libreria {
 
     //Atributos
     private String titulo;
@@ -6,7 +6,7 @@ public class Libro {
     private String publicacion;
     private boolean prestado;
 
-    public Libro(String titulo, String autor, String publicacion, boolean prestado) {
+    public Libreria(String titulo, String autor, String publicacion, boolean prestado) {
         this.titulo = titulo;
         this.autor = autor;
         this.publicacion = publicacion;

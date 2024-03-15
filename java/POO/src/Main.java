@@ -4,42 +4,42 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Libro objLibro = new Libro(
+        Libreria objLibreria = new Libreria(
                 "Cien años de soledad",
                 "Gabriel Garcia M",
                 "Mayo 1967",
                 false);
 
 
-/*        System.out.println(objLibro.getTitulo());
+      System.out.println(objLibreria.getTitulo());
 
-        objLibro.setTitulo("El rastro de tu sangre en la nieve");
+        objLibreria.setTitulo("El rastro de tu sangre en la nieve");
 
-        System.out.println(objLibro.getTitulo());
+        System.out.println(objLibreria.getTitulo());
 
-        System.out.println(objLibro);
+        System.out.println(objLibreria);
 
-        objLibro.setPrestado(true);
+        objLibreria.setPrestado(true);
 
-        System.out.println(objLibro.getPrestado());*/
+        System.out.println(objLibreria.getPrestado());
 
-        Gestion objGestion = new Gestion(
+        Gestionador objGestionador = new Gestionador(
                 "miguel",
                 "Gerente",
                 2000000,
                 1
         );
 
-/*      Scanner objScanner = new Scanner(System.in);
+     Scanner objScanner = new Scanner(System.in);
 
         System.out.println("Ingrese el porcentaje que quiere aumentar en base al salario" +
-                "salario actual: " + objGestion.getSalario());
+                "salario actual: " + objGestionador.getSalario());
 
         double aumSalario = objScanner.nextDouble();
 
-        objGestion.aumentarSalario(aumSalario);
+        objGestionador.aumentarSalario(aumSalario);
 
-        System.out.println(objGestion.getSalario());*/
+        System.out.println(objGestionador.getSalario());
 
 
         Banco objBanco = new Banco(
@@ -48,7 +48,7 @@ public class Main {
         );
 
 
-        /*System.out.println("Ingresar fondos");
+        System.out.println("Ingresar fondos");
 
 
         int option;
@@ -79,7 +79,7 @@ public class Main {
                     break;
             }
 
-        } while (option != 4);*/
+        } while (option != 4);
 
 
 

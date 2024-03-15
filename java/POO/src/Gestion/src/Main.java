@@ -71,6 +71,33 @@ public class Main {
                                 if (curso == null) {
                                     System.out.println("Curso no encontrado");
                                 } else {
+                                    curso.guardarEstudiante(objScanner);
+                                }
+                                break;
+                            case 2:
+                                objGestion.listarCursos();
+
+                                System.out.println("ingrese el codigo del curso del estudiante que desea eliminar");
+                                codigo = objScanner.next();
+
+                                Curso objCurso = objGestion.buscarPorCodigo(codigo);
+                                if (objCurso == null) {
+                                    System.out.println("Codigo no valido");
+                                }else {
+                                    objCurso.eliminarEstudiantes(objScanner);
+                                }
+                                break;
+
+                            case 3:
+                                objGestion.listarCursos();
+
+                                System.out.println("Ingresar el codigo del curso que quiere ver los estudiantes");
+                                codigo = objScanner.next();
+                                curso = objGestion.buscarPorCodigo(codigo);
+
+                                if (curso == null) {
+                                    System.out.println("Curso no encontrado");
+                                }else {
                                     curso.listarEstudiantes();
                                 }
                                 break;
