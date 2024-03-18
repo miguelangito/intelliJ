@@ -2,10 +2,7 @@ package Ejercicios_POO_parte2_1;
 
 public class Libro {
 
-
-
-
-        //Atributos
+    //Atributos
         private String titulo;
         private String autor;
         private String publicacion;
@@ -71,4 +68,3 @@ public class Libro {
                     '}';
         }
     }
-
