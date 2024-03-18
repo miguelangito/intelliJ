@@ -1,6 +1,5 @@
-package Ejercicios_POO_parte2;
+package Ejercicios_POO_parte2_3;
 
-import java.security.Key;
 import java.util.ArrayList;
 
 public class Inventario {

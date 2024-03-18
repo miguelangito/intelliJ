@@ -1,45 +1,48 @@
+package Ejercicios_POO_parte2_1;
+
 import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        Libreria objLibreria = new Libreria(
+
+           Libro objLibro = new Libro(
                 "Cien años de soledad",
                 "Gabriel Garcia M",
                 "Mayo 1967",
                 false);
 
 
-      System.out.println(objLibreria.getTitulo());
+        System.out.println(objLibro.getTitulo());
 
-        objLibreria.setTitulo("El rastro de tu sangre en la nieve");
+        objLibro.setTitulo("El rastro de tu sangre en la nieve");
 
-        System.out.println(objLibreria.getTitulo());
+        System.out.println(objLibro.getTitulo());
 
-        System.out.println(objLibreria);
+        System.out.println(objLibro);
 
-        objLibreria.setPrestado(true);
+        objLibro.setPrestado(true);
 
-        System.out.println(objLibreria.getPrestado());
+        System.out.println(objLibro.getPrestado());
 
-        Gestionador objGestionador = new Gestionador(
+        Gestionador objGestion = new Gestionador(
                 "miguel",
                 "Gerente",
                 2000000,
                 1
         );
 
-     Scanner objScanner = new Scanner(System.in);
+      Scanner objScanner = new Scanner(System.in);
 
         System.out.println("Ingrese el porcentaje que quiere aumentar en base al salario" +
-                "salario actual: " + objGestionador.getSalario());
+                "salario actual: " + objGestion.getSalario());
 
         double aumSalario = objScanner.nextDouble();
 
-        objGestionador.aumentarSalario(aumSalario);
+        objGestion.aumentarSalario(aumSalario);
 
-        System.out.println(objGestionador.getSalario());
+        System.out.println(objGestion.getSalario());
 
 
         Banco objBanco = new Banco(

@@ -1,3 +1,5 @@
+package Ejercicios_POO_parte2_1;
+
 public class Stock {
     private String descripcion;
     private int id;
@@ -39,7 +41,7 @@ public class Stock {
 
     @Override
     public String toString() {
-        return "Stock{" +
+        return "Ejercicios_POO_parte2_1.Stock{" +
                 "descripcion='" + descripcion + '\'' +
                 ", id=" + id +
                 ", cantidadStock=" + cantidadStock +
