@@ -2,14 +2,14 @@ package entity;
 
 public class Coder {
     private int id;
-    private String nombre;
+    private String name;
     private int age;
     private String clan;
 
 
-    public Coder(int id, String nombre, int age, String clan) {
+    public Coder(int id, String name, int age, String clan) {
         this.id = id;
-        this.nombre = nombre;
+        this.name = name;
         this.age = age;
         this.clan = clan;
     }
@@ -25,12 +25,12 @@ public class Coder {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
@@ -51,11 +51,10 @@ public class Coder {
 
     @Override
     public String toString() {
-        return "Coder{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", age=" + age +
-                ", clan='" + clan + '\'' +
-                '}';
+        return "Coder: " +
+                "id: " + id +
+                ", nombre: '" + name + '\'' +
+                ", age: " + age +
+                ", clan: '" + clan + '\'';
     }
 }
