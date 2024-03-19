@@ -1,4 +1,4 @@
-package databse;
+package database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,7 +15,7 @@ public class ConfigDB {
     public static Connection openConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/_01__jdbc";
+            String url = "jdbc:mysql://localhost:3306/mydb";
             String user = "root";
             String password = "Rlwl2023.";
 

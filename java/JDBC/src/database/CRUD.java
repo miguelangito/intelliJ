@@ -1,4 +1,4 @@
-package databse;
+package database;
 
 import java.util.List;
 

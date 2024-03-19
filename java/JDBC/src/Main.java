@@ -1,6 +1,5 @@
 import controller.CoderController;
-import databse.ConfigDB;
-import model.CoderModel;
+import database.ConfigDB;
 
 import javax.swing.*;
 import java.util.Objects;
