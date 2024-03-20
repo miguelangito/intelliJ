@@ -9,13 +9,13 @@ public class CoderController {
 
     CoderModel objCoderModel = new CoderModel();
 
-    public CoderController(){
+    public CoderController() {
         //Crear una instancia del model
         this.objCoderModel = new CoderModel();
     }
 
     //Método para listar todos los coder
-    public void getAll(){
+    public void getAll() {
         String list = "-- List Coders -- \n";
 
         //Iteramos sobre la lista que devuelve el método findAll
@@ -28,7 +28,7 @@ public class CoderController {
         JOptionPane.showMessageDialog(null, list);
     }
 
-    public void create(){
+    public void create() {
         Coder objCoder = new Coder();
 
         String name = JOptionPane.showInputDialog("Insert name: ");
@@ -43,25 +43,42 @@ public class CoderController {
         JOptionPane.showMessageDialog(null, objCoder.toString());
     }
 
-    public void delete(){
+    public void delete() {
         String listCoderString = "-- Coder list --\n";
 
-        for (Object obj: this.objCoderModel.findAll()){
+        for (Object obj : this.objCoderModel.findAll()) {
             Coder objCoder = (Coder) obj;
             listCoderString += objCoder.toString() + "\n";
         }
         int confirm = 1;
-        int idDelete = Integer.parseInt(JOptionPane.showInputDialog( listCoderString + "Enter the ID of the coder you want to delete"));
+        int idDelete = Integer.parseInt(JOptionPane.showInputDialog(listCoderString + "Enter the ID of the coder you want to delete"));
 
         Coder objCoder = (Coder) this.objCoderModel.findById(idDelete);
 
         if (objCoder == null) {
-            JOptionPane.showMessageDialog(null,"ID not found");
-        }else {
+            JOptionPane.showMessageDialog(null, "ID not found");
+        } else {
             confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the coder; \n" + objCoder.toString());
-            if (confirm == 0){
+            if (confirm == 0) {
                 this.objCoderModel.delete(objCoder);
             }
         }
+    }
+
+    public void find() {
+
+        String nameCoder = JOptionPane.showInputDialog(null, "Enter the name of the coder for search");
+
+        String list = "List Coders: \n";
+
+
+        for (Object obj : this.objCoderModel.findByName(nameCoder)) {
+
+            Coder objCoder = (Coder) obj;
+            list += objCoder.toString() + "\n";
+        }
+
+        JOptionPane.showMessageDialog(null, list);
+
     }
 }

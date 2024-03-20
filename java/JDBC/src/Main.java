@@ -17,18 +17,23 @@ public class Main {
                     4. Delete Coder.
                     5. Get by name.
                     6. Exit.
-                    
+                                        
                     Choose an option:
                     """);
-            switch (option){
+            switch (option) {
                 case "1": //List all coders
                     objCoderController.getAll();
                     break;
                 case "2":
                     objCoderController.create();
+                    break;
                 case "4":
                     objCoderController.delete();
+                    break;
+                case "5":
+                    objCoderController.find();
+                    break;
             }
-        }while (!Objects.equals(option, "6"));
+        } while (!Objects.equals(option, "6"));
     }
 }

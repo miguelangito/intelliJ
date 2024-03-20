@@ -12,29 +12,29 @@ public class ConfigDB {
 
     //Método para abrir la conexión entre Java y la base de datos
 
-    public static Connection openConnection(){
+    public static Connection openConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/_01__jdbc";
             String user = "root";
             String password = "Rlwl2023.";
 
-            objConnection = (Connection) DriverManager.getConnection(url,user,password);
+            objConnection = (Connection) DriverManager.getConnection(url, user, password);
             System.out.println("Conectado perfectamente");
-        }catch (ClassNotFoundException e ){
+        } catch (ClassNotFoundException e) {
             System.out.println("Error >> Driver no instalado " + e.getMessage());
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error >> no se pudo establecer una conexión con la bd");
         }
         return objConnection;
     }
 
 
-    public static void closeConnection(){
+    public static void closeConnection() {
         try {
             if (objConnection != null) objConnection.close();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }

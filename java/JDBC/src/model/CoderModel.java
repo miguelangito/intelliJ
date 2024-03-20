@@ -62,7 +62,7 @@ public class CoderModel implements CRUD {
     }
 
     @Override
-    public boolean delete(Object object) {
+    public void delete(Object object) {
 
         //1. Convertir el objeto a la entidad
         Coder objCoder = (Coder) object;
@@ -98,7 +98,6 @@ public class CoderModel implements CRUD {
         //8. Cerrar conexión
         ConfigDB.closeConnection();
 
-        return isDeleted;
     }
 
     @Override
@@ -139,6 +138,42 @@ public class CoderModel implements CRUD {
             JOptionPane.showMessageDialog(null, "Data acquisition Error");
         }
         //7. Cerramos la conexion
+        ConfigDB.closeConnection();
+
+        return listCoders;
+    }
+
+    public List<Coder> findByName(String nameCoder) {
+
+        Connection objConnection = ConfigDB.openConnection();
+
+        List<Coder> listCoders = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM coder WHERE name LIKE ?;";
+
+            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
+
+            objPreparedStatement.setString(1,"%" + nameCoder + "%");
+
+            ResultSet objResult = objPreparedStatement.executeQuery();
+
+            while (objResult.next()) {
+                Coder objCoder = new Coder();
+
+                objCoder.setId(objResult.getInt("id"));
+                objCoder.setName(objResult.getString("name"));
+                objCoder.setAge(objResult.getInt("age"));
+                objCoder.setClan(objResult.getString("clan"));
+
+                listCoders.add(objCoder);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Data acquisition Error" + e.getMessage());
+        }
+
         ConfigDB.closeConnection();
 
         return listCoders;
