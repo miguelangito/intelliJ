@@ -15,7 +15,7 @@ public class Main {
                     2. Insert Coder.
                     3. Update Coder.
                     4. Delete Coder.
-                    5. Get by ID.
+                    5. Get by name.
                     6. Exit.
                     
                     Choose an option:
@@ -26,6 +26,8 @@ public class Main {
                     break;
                 case "2":
                     objCoderController.create();
+                case "4":
+                    objCoderController.delete();
             }
         }while (!Objects.equals(option, "6"));
     }
