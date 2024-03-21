@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/java/Bucles/Bucles.iml" filepath="$PROJECT_DIR$/java/Bucles/Bucles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/JDBC/Ejercicios_JDBC/Ejercicios_JDBC.iml" filepath="$PROJECT_DIR$/java/JDBC/Ejercicios_JDBC/Ejercicios_JDBC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/JDBC/JDBC.iml" filepath="$PROJECT_DIR$/java/JDBC/JDBC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/POO/POO.iml" filepath="$PROJECT_DIR$/java/POO/POO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/POO/src/POO1.iml" filepath="$PROJECT_DIR$/java/POO/src/POO1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/arrays/arrays.iml" filepath="$PROJECT_DIR$/java/arrays/arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/intelliJ.iml" filepath="$PROJECT_DIR$/.idea/intelliJ.iml" />
+    </modules>
+  </component>
+</project>

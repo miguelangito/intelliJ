@@ -15,9 +15,9 @@ public class ConfigDB {
     public static Connection openConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/mydb";
-            String user = "root";
-            String password = "Rlwl2023.";
+            String url = "jdbc:mysql://bzoaestckd3oxex7rh8i-mysql.services.clever-cloud.com:3306/bzoaestckd3oxex7rh8i";
+            String user = "ucr0dcbjl8rgmwpm";
+            String password = "KWsafzxoqLqrEsdQQGDF.";
 
             objConnection = (Connection) DriverManager.getConnection(url,user,password);
             System.out.println("Conectado perfectamente");
