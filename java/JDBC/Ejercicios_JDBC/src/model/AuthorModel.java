@@ -5,27 +5,27 @@ import database.CRUD;
 import java.util.List;
 
 public class AuthorModel implements CRUD {
-    @Override
+    @java.lang.Override
     public Object insert(Object object) {
         return null;
     }
 
-    @Override
+    @java.lang.Override
     public boolean update(Object object) {
         return false;
     }
 
-    @Override
+    @java.lang.Override
     public void delete(Object object) {
 
     }
 
-    @Override
+    @java.lang.Override
     public List<Object> findAll() {
         return null;
     }
 
-    @Override
+    @java.lang.Override
     public Object findById(int id) {
         return null;
     }
