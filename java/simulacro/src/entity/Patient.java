@@ -7,12 +7,12 @@ public class Patient {
     private String name;
     private String lastName;
     private Date nacDate;
-    private int documentNumber;
+    private String documentNumber;
 
     public Patient() {
     }
 
-    public Patient(int idPatient, String name, String lastName, Date nacDate, int documentNumber) {
+    public Patient(int idPatient, String name, String lastName, Date nacDate, String documentNumber) {
         this.idPatient = idPatient;
         this.name = name;
         this.lastName = lastName;
@@ -44,19 +44,19 @@ public class Patient {
         this.lastName = lastName;
     }
 
-    public Date getNacDate() {
-        return nacDate;
+    public java.sql.Date getNacDate() {
+        return (java.sql.Date) nacDate;
     }
 
     public void setNacDate(Date nacDate) {
         this.nacDate = nacDate;
     }
 
-    public int getDocumentNumber() {
+    public String getDocumentNumber() {
         return documentNumber;
     }
 
-    public void setDocumentNumber(int documentNumber) {
+    public void setDocumentNumber(String documentNumber) {
         this.documentNumber = documentNumber;
     }
 

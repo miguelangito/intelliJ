@@ -28,7 +28,7 @@ public class SpecialityModel implements SpecialityCrud {
 
             objPrepare.execute();
 
-            ResultSet objResult = objPrepare.getResultSet();
+            ResultSet objResult = objPrepare.getGeneratedKeys();
             while (objResult.next()){
                 objSpeciality.setIdEspeciality(objResult.getInt(1));
             }

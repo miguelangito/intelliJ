@@ -1,3 +1,4 @@
+import controller.PatientController;
 import controller.SpecialityController;
 import database.ConfigDB;
 import entity.Speciality;
@@ -10,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         SpecialityController objSpecialityController = new SpecialityController();
+        PatientController objPatientController = new PatientController();
 
         JOptionPane.showMessageDialog(null, "Welcome to the medic administrator");
        String option;
@@ -24,8 +26,50 @@ public class Main {
                     """);
             switch (option){
                 case "1":
+                    do {
+                        JOptionPane.showMessageDialog(null,"Welcome to the Patients administrator");
+                        option = JOptionPane.showInputDialog("""
+                                Chose an option
+                                1. Add a new patient.
+                                2. Change data from a patient.
+                                3. Delete a patient profile.
+                                4. List all patients.
+                                5. Exit.
+                                """);
+                        switch (option){
+                            case "1":
+                                objPatientController.create();
+                            case "2":
+                                break;
+                            case "3":
+                                break;
+                            case "4":
+                                break;
+                        }
+                    }while (!Objects.equals(option, "5"));
                     break;
                 case "2":
+                    do {
+                        JOptionPane.showMessageDialog(null,"Welcome to the Medic administrator");
+                        option = JOptionPane.showInputDialog("""
+                            Chose an option
+                            1. Add a new doctor.
+                            2. Change data from a doctor.
+                            3. Delete a doctor profile.
+                            4. List all doctors.
+                            5. Exit.
+                            """);
+                        switch (option){
+                            case "1":
+                                break;
+                            case "2":
+                                break;
+                            case "3":
+                                break;
+                            case "4":
+                                break;
+                        }
+                    }while (!Objects.equals(option,"5"));
                     break;
                 case "3":
                     do {
@@ -41,15 +85,40 @@ public class Main {
                         switch (option){
                             case "1":
                                 objSpecialityController.create();
+
+                            case "2":
+                                break;
+                            case "3":
+                                break;
+                            case "4":
+                                break;
                         }
                     }while (!Objects.equals(option, "5"));
                     break;
                 case "4":
+                    do {
+                        JOptionPane.showMessageDialog(null, "Welcome to the Cites administrator");
+                        option = JOptionPane.showInputDialog("""
+                                 Chose an option
+                                 1. Create a new Cite.
+                                 2. Edit a existing cite.
+                                 3. Delete a cite
+                                 4. List all the cites.
+                                 5. Exit.
+                                 """);
+                        switch (option){
+                            case "1":
+                                break;
+                            case "2":
+                                break;
+                            case "3":
+                                break;
+                            case "4":
+                                break;
+                        }
+                    }while (!Objects.equals(option, "5"));
                     break;
-
             }
         }while (!option.equals("5"));
-
-
     }
 }
