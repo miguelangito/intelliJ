@@ -29,7 +29,46 @@ public class PatientController {
         JOptionPane.showMessageDialog(null,objPatient.toString());
     }
 
+    public void delete(){
+        String listPatientStr = this.list(this.objPatientModel.listAll());
 
+        int confirm = 1;
+        int idDelete = Integer.parseInt(JOptionPane.showInputDialog(listPatientStr + "Enter the ID of the Patient you want to delete"));
+        Patient objPatient = (Patient) this.objPatientModel.findById(idDelete);
+
+        if (objPatient == null) {
+            JOptionPane.showMessageDialog(null, "Patient not found");
+        }else {
+            confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the patient: \n"+ objPatient.toString());
+
+            if (confirm == 0) {
+                this.objPatientModel.delete(objPatient);
+            }
+        }
+    }
+
+    public void update(){
+        String listPatients = this.list(this.objPatientModel.listAll());
+
+        int idUpdate = Integer.parseInt(JOptionPane.showInputDialog(listPatients + "\n Enter the ID of the patient do you want to edit"));
+        Patient objPatient = (Patient) this.objPatientModel.findById(idUpdate);
+
+        if (objPatient == null) {
+            JOptionPane.showMessageDialog(null, "Patient not found");
+        }else {
+            String name = JOptionPane.showInputDialog(null,"Enter the new name", objPatient.getName());
+            String lastName = JOptionPane.showInputDialog(null,"Enter the new last name", objPatient.getLastName());
+            java.sql.Date date = Date.valueOf(JOptionPane.showInputDialog(null,"Enter the new birth Date", objPatient.getNacDate()));
+            String doc_number = JOptionPane.showInputDialog(null,"Enter the new document number", objPatient.getDocumentNumber());
+
+            objPatient.setName(name);
+            objPatient.setLastName(lastName);
+            objPatient.setNacDate(date);
+            objPatient.setDocumentNumber(doc_number);
+
+            this.objPatientModel.update(objPatient);
+        }
+    }
 
     public void list(){
         String list = this.list(objPatientModel.listAll());

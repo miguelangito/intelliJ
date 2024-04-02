@@ -40,9 +40,9 @@ public class Main {
                             case "1":
                                 objPatientController.create();
                             case "2":
-                                break;
+                                objPatientController.update();
                             case "3":
-                                break;
+                                objPatientController.delete();
                             case "4":
                                 objPatientController.list();
                         }
@@ -87,13 +87,10 @@ public class Main {
                                 objSpecialityController.create();
                             case "2":
                                 objSpecialityController.update();
-                                break;
                             case "3":
                                 objSpecialityController.delete();
-                                break;
                             case "4":
                                 objSpecialityController.list();
-                                break;
                         }
                     }while (!Objects.equals(option, "5"));
                     break;

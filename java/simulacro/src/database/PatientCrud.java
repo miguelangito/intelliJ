@@ -11,9 +11,9 @@ public interface PatientCrud {
 
     List<Patient> findByFilter(String filter, String value);
 
-    void update(Patient patient);
+    boolean update(Patient patient);
 
-    void delete(Patient patient);
+    boolean delete(Patient patient);
 
 
     Object findById(int id);
