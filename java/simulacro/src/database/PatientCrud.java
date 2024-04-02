@@ -3,6 +3,7 @@ package database;
 import entity.Patient;
 
 import java.util.List;
+import java.util.Objects;
 
 public interface PatientCrud {
 
@@ -15,4 +16,7 @@ public interface PatientCrud {
     void delete(Patient patient);
 
 
+    Object findById(int id);
+
+    List<Object> listAll();
 }

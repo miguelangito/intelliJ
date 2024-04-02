@@ -44,7 +44,7 @@ public class Main {
                             case "3":
                                 break;
                             case "4":
-                                break;
+                                objPatientController.list();
                         }
                     }while (!Objects.equals(option, "5"));
                     break;
@@ -85,12 +85,14 @@ public class Main {
                         switch (option){
                             case "1":
                                 objSpecialityController.create();
-
                             case "2":
+                                objSpecialityController.update();
                                 break;
                             case "3":
+                                objSpecialityController.delete();
                                 break;
                             case "4":
+                                objSpecialityController.list();
                                 break;
                         }
                     }while (!Objects.equals(option, "5"));

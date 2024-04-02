@@ -41,10 +41,8 @@ public class Speciality {
 
     @Override
     public String toString() {
-        return "Especialidad{" +
-                "idEspeciality=" + idEspeciality +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return  " id: " + idEspeciality +
+                ", name: " + name  +", "+ "\n" +
+                "description: " + description;
     }
 }

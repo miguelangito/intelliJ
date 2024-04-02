@@ -62,12 +62,13 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" +
-                "idPatient=" + idPatient +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", nacDate=" + nacDate +
-                ", documentNumber=" + documentNumber +
-                '}';
+        return
+                "id: " + idPatient +
+                ", name: " + name +
+                ", lastName: " + lastName + "\n" +
+                "nacDate: " + nacDate +
+                ", documentNumber: " + documentNumber
+                        +"\n"
+                + "----------------------------------------------------------------------------";
     }
 }

@@ -10,9 +10,11 @@ public interface SpecialityCrud {
 
     List<Speciality> findByFilter(String filter, String value);
 
-    void update(Speciality speciality);
+    boolean update(Speciality speciality);
 
-    void delete(Speciality speciality);
+    boolean delete(Speciality speciality);
 
+    List<Object> listAll();
 
+    Object findById(int id);
 }

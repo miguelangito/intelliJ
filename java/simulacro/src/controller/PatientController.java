@@ -7,6 +7,7 @@ import javax.swing.*;
 import entity.Speciality;
 
 import java.sql.Date;
+import java.util.List;
 
 public class PatientController {
 
@@ -26,5 +27,24 @@ public class PatientController {
 
         objPatient = (Patient) this.objPatientModel.create(objPatient);
         JOptionPane.showMessageDialog(null,objPatient.toString());
+    }
+
+
+
+    public void list(){
+        String list = this.list(objPatientModel.listAll());
+
+        JOptionPane.showMessageDialog(null,list);
+    }
+
+    public String list(List<Object> listObject){
+        String list = "-- Patients list -- \n";
+
+        for (Object obj: listObject){
+            Patient objPatient = (Patient) obj;
+
+            list += objPatient.toString() + "\n";
+        }
+        return list;
     }
 }
