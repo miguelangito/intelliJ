@@ -1,29 +1,38 @@
 package model;
 
-import database.CiteCrud;
-import entity.Cite;
+import database.CRUD;
 
 import java.util.List;
 
-public class CiteModel implements CiteCrud {
+public class CiteModel implements CRUD {
 
     @Override
-    public Cite create(Cite cite) {
+    public Object create(Object object) {
         return null;
     }
 
     @Override
-    public List<Cite> findByFilter(String filter, String value) {
+    public List<Object> findByFilter(String filter, String value) {
         return null;
     }
 
     @Override
-    public void update(Cite cite) {
-
+    public boolean update(Object object) {
+        return false;
     }
 
     @Override
-    public void delete(Cite cite) {
+    public boolean delete(Object object) {
+        return false;
+    }
 
+    @Override
+    public Object findById(int id) {
+        return null;
+    }
+
+    @Override
+    public List<Object> listAll() {
+        return null;
     }
 }

@@ -1,9 +1,8 @@
 package model;
 
+import database.CRUD;
 import database.ConfigDB;
-import database.SpecialityCrud;
 import entity.Speciality;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,13 +10,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpecialityModel implements SpecialityCrud {
+public class SpecialityModel implements CRUD {
 
     @Override
-    public Speciality create(Speciality speciality) {
+    public Object create(Object object) {
         Connection objConnection = ConfigDB.openConnection();
 
-        Speciality objSpeciality = (Speciality) speciality;
+        Speciality objSpeciality = (Speciality)  object;
 
         try {
             String sql = "INSERT INTO Especialidades(nombre, descripcion) VALUES ( ?, ? )";
@@ -44,12 +43,12 @@ public class SpecialityModel implements SpecialityCrud {
     }
 
     @Override
-    public List<Speciality> findByFilter(String filter, String value) {
+    public List<Object> findByFilter(String filter, String value) {
         return null;
     }
 
     @Override
-    public boolean update(Speciality speciality) {
+    public boolean update(Object speciality) {
         Connection objConnection = ConfigDB.openConnection();
         boolean isUpdated = false;
 
@@ -75,7 +74,7 @@ public class SpecialityModel implements SpecialityCrud {
     }
 
     @Override
-    public boolean delete(Speciality speciality) {
+    public boolean delete(Object speciality) {
 
         boolean isDeleted = false;
 

@@ -1,3 +1,4 @@
+import controller.MedicController;
 import controller.PatientController;
 import controller.SpecialityController;
 import database.ConfigDB;
@@ -12,7 +13,7 @@ public class Main {
 
         SpecialityController objSpecialityController = new SpecialityController();
         PatientController objPatientController = new PatientController();
-
+        MedicController objMedicController = new MedicController();
         JOptionPane.showMessageDialog(null, "Welcome to the medic administrator");
        String option;
         do {
@@ -61,7 +62,7 @@ public class Main {
                             """);
                         switch (option){
                             case "1":
-                                break;
+                                objMedicController.create();
                             case "2":
                                 break;
                             case "3":

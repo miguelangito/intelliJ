@@ -1,10 +1,8 @@
 package model;
 
+import database.CRUD;
 import database.ConfigDB;
-import database.PatientCrud;
 import entity.Patient;
-import entity.Speciality;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,10 +10,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatientModel implements PatientCrud {
+public class PatientModel implements CRUD {
 
     @Override
-    public Patient create(Patient patient) {
+    public Patient create(Object patient) {
         Connection objConnection = ConfigDB.openConnection();
 
         Patient objPatient = (Patient) patient;
@@ -47,12 +45,12 @@ public class PatientModel implements PatientCrud {
     }
 
     @Override
-    public List<Patient> findByFilter(String filter, String value) {
+    public List<Object> findByFilter(String filter, String value) {
         return null;
     }
 
     @Override
-    public boolean update(Patient patient) {
+    public boolean update(Object patient) {
             Connection objConnection = ConfigDB.openConnection();
             Patient objPatient = (Patient) patient;
             boolean isUpdate = false;
@@ -80,7 +78,7 @@ public class PatientModel implements PatientCrud {
     }
 
     @Override
-    public boolean delete(Patient patient) {
+    public boolean delete(Object patient) {
             Patient objPatient = (Patient) patient;
 
             boolean isDeleted = false;
