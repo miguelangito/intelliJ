@@ -84,14 +84,6 @@ public class Cite {
 
     @Override
     public String toString() {
-        return "Cite{" +
-                "idCite=" + idCite +
-                ", idPatient=" + idPatient +
-                ", objPatient=" + objPatient +
-                ", idMedic=" + idMedic +
-                ", objMedic=" + objMedic +
-                ", citeDate=" + citeDate +
-                ", citeTime=" + citeTime +
-                '}';
+        return "Cite{" + "idCite=" + idCite + ", idPatient=" + idPatient + ", objPatient=" + objPatient + ", idMedic=" + idMedic + ", objMedic=" + objMedic + ", citeDate=" + citeDate + ", citeTime=" + citeTime + '}';
     }
 }

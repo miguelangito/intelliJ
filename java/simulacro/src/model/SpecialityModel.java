@@ -3,6 +3,7 @@ package model;
 import database.CRUD;
 import database.ConfigDB;
 import entity.Speciality;
+
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,12 +17,12 @@ public class SpecialityModel implements CRUD {
     public Object create(Object object) {
         Connection objConnection = ConfigDB.openConnection();
 
-        Speciality objSpeciality = (Speciality)  object;
+        Speciality objSpeciality = (Speciality) object;
 
         try {
             String sql = "INSERT INTO Especialidades(nombre, descripcion) VALUES ( ?, ? )";
 
-            PreparedStatement objPrepare = (PreparedStatement) objConnection.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement objPrepare = (PreparedStatement) objConnection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
             objPrepare.setString(1, objSpeciality.getName());
             objPrepare.setString(2, objSpeciality.getDescription());
@@ -29,14 +30,14 @@ public class SpecialityModel implements CRUD {
             objPrepare.execute();
 
             ResultSet objResult = objPrepare.getGeneratedKeys();
-            while (objResult.next()){
+            while (objResult.next()) {
                 objSpeciality.setIdEspeciality(objResult.getInt(1));
             }
 
             objPrepare.close();
-            JOptionPane.showMessageDialog(null,"Speciality adding was successful");
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error adding new Speciality" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Speciality adding was successful");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error adding new Speciality" + e.getMessage());
         }
         ConfigDB.closeConnection();
         return objSpeciality;
@@ -89,14 +90,15 @@ public class SpecialityModel implements CRUD {
 
             int totalAffectedRows = objPrepare.executeUpdate();
 
-            if (totalAffectedRows > 0){
+            if (totalAffectedRows > 0) {
                 isDeleted = true;
                 JOptionPane.showMessageDialog(null, "The delete was successful");
             }
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null , e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
+        ConfigDB.closeConnection();
 
         return isDeleted;
     }
@@ -108,14 +110,14 @@ public class SpecialityModel implements CRUD {
 
         List<Object> specialityList = new ArrayList<>();
 
-        try{
+        try {
             String sql = "SELECT * FROM Especialidades ORDER BY Especialidades.id_especialidad ASC";
 
             PreparedStatement objPrepare = (PreparedStatement) objConnection.prepareStatement(sql);
 
             ResultSet objResult = objPrepare.executeQuery();
 
-            while (objResult.next()){
+            while (objResult.next()) {
                 Speciality objSpeciality = new Speciality();
 
                 objSpeciality.setIdEspeciality(objResult.getInt("id_especialidad"));
@@ -125,9 +127,10 @@ public class SpecialityModel implements CRUD {
                 specialityList.add(objSpeciality);
 
             }
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Data acquisition error " +e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data acquisition error " + e.getMessage());
         }
+        ConfigDB.closeConnection();
 
         return specialityList;
     }

@@ -5,7 +5,6 @@ public class Speciality {
     public int idEspeciality;
     private String name;
     private String description;
-
     public Speciality() {
     }
 
@@ -41,8 +40,6 @@ public class Speciality {
 
     @Override
     public String toString() {
-        return  " id: " + idEspeciality +
-                ", name: " + name  +", "+ "\n" +
-                "description: " + description;
+        return " id: " + idEspeciality + ", name: " + name + ", " + "\n" + "description: " + description;
     }
 }

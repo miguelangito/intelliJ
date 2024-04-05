@@ -40,12 +40,16 @@ public class Main {
                         switch (option){
                             case "1":
                                 objPatientController.create();
+                                break;
                             case "2":
                                 objPatientController.update();
+                                break;
                             case "3":
                                 objPatientController.delete();
+                                break;
                             case "4":
                                 objPatientController.list();
+                                break;
                         }
                     }while (!Objects.equals(option, "5"));
                     break;
@@ -63,11 +67,15 @@ public class Main {
                         switch (option){
                             case "1":
                                 objMedicController.create();
+                                break;
                             case "2":
+                                MedicController.update();
                                 break;
                             case "3":
+                                MedicController.delete();
                                 break;
                             case "4":
+                                MedicController.findAll();
                                 break;
                         }
                     }while (!Objects.equals(option,"5"));
@@ -86,12 +94,16 @@ public class Main {
                         switch (option){
                             case "1":
                                 objSpecialityController.create();
+                                break;
                             case "2":
                                 objSpecialityController.update();
+                                break;
                             case "3":
                                 objSpecialityController.delete();
+                                break;
                             case "4":
                                 objSpecialityController.list();
+                                break;
                         }
                     }while (!Objects.equals(option, "5"));
                     break;

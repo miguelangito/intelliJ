@@ -11,8 +11,7 @@ public class Medic {
     public Medic() {
     }
 
-    public Medic(int idMedic, String name, String lastName, Integer idEspeciality, Speciality objEspeciality) {
-        this.idMedic = idMedic;
+    public Medic(String name, String lastName, Integer idEspeciality, Speciality objEspeciality) {
         this.name = name;
         this.lastName = lastName;
         this.idEspeciality = idEspeciality;
@@ -61,12 +60,6 @@ public class Medic {
 
     @Override
     public String toString() {
-        return "Medico{" +
-                "idMedic=" + idMedic +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", idEspeciality=" + idEspeciality +
-                ", objEspeciality=" + objEspeciality +
-                '}';
+        return "id: " + idMedic + ", name: " + name + ", lastName: " + lastName + '\n' + "id_Especiality: " + idEspeciality + ", Especiality: " + objEspeciality;
     }
 }

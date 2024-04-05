@@ -3,6 +3,7 @@ package model;
 import database.CRUD;
 import database.ConfigDB;
 import entity.Medic;
+import entity.Speciality;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -20,23 +21,24 @@ public class MedicModel implements CRUD {
         Medic objMedic = (Medic) medic;
 
         try {
-            String sql = "INSERT INTO Medicos(nombre, apellido) VALUES ( ?, ? )";
+            String sql = "INSERT INTO Medicos(nombre, apellido, id_especialidad) VALUES ( ?, ?, ? )";
 
             PreparedStatement objPrepare = (PreparedStatement) objConnection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
-            objPrepare.setString(1,objMedic.getName());
-            objPrepare.setString(2,objMedic.getLastName());
+            objPrepare.setString(1, objMedic.getName());
+            objPrepare.setString(2, objMedic.getLastName());
+            objPrepare.setInt(3, objMedic.getIdEspeciality());
 
             objPrepare.execute();
 
             ResultSet objResult = objPrepare.getGeneratedKeys();
-            while (objResult.next()){
+            while (objResult.next()) {
                 objMedic.setIdMedic(objResult.getInt(1));
             }
 
             objPrepare.close();
             JOptionPane.showMessageDialog(null, "Medic was added successfully");
-        }catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error adding new Medic " + e.getMessage());
         }
         ConfigDB.closeConnection();
@@ -52,19 +54,18 @@ public class MedicModel implements CRUD {
     public boolean update(Object medic) {
 
         Connection objConnection = ConfigDB.openConnection();
+        Medic objMedic = (Medic) medic;
         boolean isUpdated = false;
 
         try {
-            String sql = "UPDATE Medicos SET nombre = ?, apellido = ?,id_especialidad = ? WHERE id_medico = ?;";
+            String sql = "UPDATE Medicos SET nombre = ?, apellido = ?, id_especialidad = ? WHERE id_medico = ?";
 
             PreparedStatement objPrepare = objConnection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-
-            Medic objMedic = new Medic();
 
             objPrepare.setString(1, objMedic.getName());
             objPrepare.setString(2, objMedic.getLastName());
             objPrepare.setInt(3, objMedic.getIdEspeciality());
-            objPrepare.setInt(4, objMedic.getIdMedic());
+            objPrepare.setInt(4, objMedic.getIdEspeciality());
 
             int rowAffected = objPrepare.executeUpdate();
 
@@ -73,10 +74,10 @@ public class MedicModel implements CRUD {
                 JOptionPane.showMessageDialog(null, "The update was successful");
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-
+        ConfigDB.closeConnection();
         return isUpdated;
     }
 
@@ -90,11 +91,11 @@ public class MedicModel implements CRUD {
 
             PreparedStatement objPrepare = objConection.prepareStatement(sql);
 
-            objPrepare.setInt(1,id);
+            objPrepare.setInt(1, id);
 
             ResultSet objResult = objPrepare.executeQuery();
 
-            while (objResult.next()){
+            while (objResult.next()) {
                 objMedic = new Medic();
 
                 objMedic.setIdMedic(objResult.getInt("id_medico"));
@@ -103,9 +104,10 @@ public class MedicModel implements CRUD {
                 objMedic.setIdEspeciality(objResult.getInt("id_especialidad"));
 
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+        ConfigDB.closeConnection();
 
         return objMedic;
     }
@@ -118,26 +120,34 @@ public class MedicModel implements CRUD {
         List<Object> medicList = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM Medicos ORDER BY Medicos.id_medico ASC";
+            String sql = "SELECT * FROM Medicos\n" + "INNER JOIN Especialidades ON Especialidades.id_especialidad = Medicos.id_especialidad";
 
             PreparedStatement objPrepare = (PreparedStatement) objConnection.prepareStatement(sql);
 
             ResultSet objResult = objPrepare.executeQuery();
 
-            while(objResult.next()){
+            while (objResult.next()) {
                 Medic objMedic = new Medic();
+                Speciality objSpeciality = new Speciality();
 
-                objMedic.setIdMedic(objResult.getInt("id_medico"));
-                objMedic.setName(objResult.getString("nombre"));
-                objMedic.setLastName(objResult.getString("apellido"));
-                objMedic.setIdEspeciality(objResult.getInt("id_especialidad"));
+                objMedic.setIdMedic(objResult.getInt("Medicos.id_medico"));
+                objMedic.setName(objResult.getString("Medicos.nombre"));
+                objMedic.setLastName(objResult.getString("Medicos.apellido"));
+                objMedic.setIdEspeciality(objResult.getInt("Medicos.id_especialidad"));
+
+                objSpeciality.setIdEspeciality(objResult.getInt("Especialidades.id_especialidad"));
+                objSpeciality.setName(objResult.getString("Especialidades.nombre"));
+                objSpeciality.setDescription(objResult.getString("Especialidades.descripcion"));
+
+                objMedic.setObjEspeciality(objSpeciality);
 
                 medicList.add(objMedic);
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+        ConfigDB.closeConnection();
 
         return medicList;
     }
@@ -146,25 +156,27 @@ public class MedicModel implements CRUD {
     public boolean delete(Object medic) {
         boolean isDeleted = false;
 
+        Medic objMedic = (Medic) medic;
+
         Connection objConnection = ConfigDB.openConnection();
         try {
             String sql = "DELETE FROM Medicos WHERE id_medico = ?";
 
             PreparedStatement objPrepare = objConnection.prepareStatement(sql);
 
-            Medic objMedic = new Medic();
 
-            objPrepare.setInt(1,objMedic.getIdMedic());
+            objPrepare.setInt(1, objMedic.getIdMedic());
 
             int totalAffectedRows = objPrepare.executeUpdate();
 
-            if (totalAffectedRows > 0){
+            if (totalAffectedRows > 0) {
                 isDeleted = true;
                 JOptionPane.showMessageDialog(null, "The delete was successful");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+        ConfigDB.closeConnection();
 
         return isDeleted;
     }
