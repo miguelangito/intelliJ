@@ -1,6 +1,7 @@
 package controller;
 
 import entity.Patient;
+import model.MedicModel;
 import model.PatientModel;
 
 import javax.swing.*;
@@ -47,6 +48,10 @@ public class PatientController {
                 this.objPatientModel.delete(objPatient);
             }
         }
+    }
+
+    public static PatientModel instanceModel() {
+        return new PatientModel();
     }
 
     public void update() {

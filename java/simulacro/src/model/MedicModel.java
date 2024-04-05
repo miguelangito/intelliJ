@@ -120,7 +120,7 @@ public class MedicModel implements CRUD {
         List<Object> medicList = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM Medicos\n" + "INNER JOIN Especialidades ON Especialidades.id_especialidad = Medicos.id_especialidad";
+            String sql = "SELECT * FROM Medicos INNER JOIN Especialidades ON Especialidades.id_especialidad = Medicos.id_especialidad";
 
             PreparedStatement objPrepare = (PreparedStatement) objConnection.prepareStatement(sql);
 

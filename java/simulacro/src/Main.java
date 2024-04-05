@@ -1,10 +1,7 @@
+import controller.AppointmentController;
 import controller.MedicController;
 import controller.PatientController;
 import controller.SpecialityController;
-import database.ConfigDB;
-import entity.Speciality;
-import model.SpecialityModel;
-
 import javax.swing.*;
 import java.util.Objects;
 
@@ -120,6 +117,7 @@ public class Main {
                                  """);
                         switch (option){
                             case "1":
+                                AppointmentController.create();
                                 break;
                             case "2":
                                 break;

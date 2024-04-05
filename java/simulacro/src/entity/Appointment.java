@@ -3,7 +3,7 @@ package entity;
 import java.sql.Time;
 import java.util.Date;
 
-public class Cite {
+public class Appointment {
 
     private int idCite;
     private Integer idPatient;
@@ -12,18 +12,19 @@ public class Cite {
     private Medic objMedic;
     private Date citeDate;
     private Time citeTime;
+    private String motive;
 
-    public Cite() {
+    public Appointment() {
     }
 
-    public Cite(int idCite, Integer idPatient, Patient objPatient, Integer idMedic, Medic objMedic, Date citeDate, Time citeTime) {
-        this.idCite = idCite;
+    public Appointment(Integer idPatient, String motive, Patient objPatient, Integer idMedic, Medic objMedic, Date citeDate, Time citeTime) {
         this.idPatient = idPatient;
         this.objPatient = objPatient;
         this.idMedic = idMedic;
         this.objMedic = objMedic;
         this.citeDate = citeDate;
         this.citeTime = citeTime;
+        this.motive = motive;
     }
 
     public int getIdCite() {
@@ -66,8 +67,16 @@ public class Cite {
         this.objMedic = objMedic;
     }
 
-    public Date getCiteDate() {
-        return citeDate;
+    public String getMotive() {
+        return motive;
+    }
+
+    public void setMotive(String motive) {
+        this.motive = motive;
+    }
+
+    public java.sql.Date getCiteDate() {
+        return (java.sql.Date) citeDate;
     }
 
     public void setCiteDate(Date citeDate) {
