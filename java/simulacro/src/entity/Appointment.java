@@ -93,6 +93,6 @@ public class Appointment {
 
     @Override
     public String toString() {
-        return "Cite{" + "idCite=" + idCite + ", idPatient=" + idPatient + ", objPatient=" + objPatient + ", idMedic=" + idMedic + ", objMedic=" + objMedic + ", citeDate=" + citeDate + ", citeTime=" + citeTime + '}';
+        return "idCite: " + idCite + ", idPatient: " + idPatient + ", Patient: " + objPatient.getName() + ", idMedic: " + idMedic + ", Medic: " + objMedic.getName() + ", motive: " + motive + ", citeDate: " + citeDate + ", citeTime: " + citeTime ;
     }
 }

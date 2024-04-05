@@ -19,7 +19,7 @@ public class Main {
                     1. Patient administrator.
                     2. Medic administrator.
                     3. Speciality administrator.
-                    4. Cite administrator.
+                    4. Appointments administrator.
                     5. Exit.
                     """);
             switch (option){
@@ -106,13 +106,13 @@ public class Main {
                     break;
                 case "4":
                     do {
-                        JOptionPane.showMessageDialog(null, "Welcome to the Cites administrator");
+                        JOptionPane.showMessageDialog(null, "Welcome to the Appointment administrator");
                         option = JOptionPane.showInputDialog("""
                                  Chose an option
-                                 1. Create a new Cite.
-                                 2. Edit a existing cite.
-                                 3. Delete a cite
-                                 4. List all the cites.
+                                 1. Create a new Appointment.
+                                 2. Edit a existing Appointment.
+                                 3. Delete an Appointment.
+                                 4. List all the Appointments.
                                  5. Exit.
                                  """);
                         switch (option){
@@ -120,10 +120,13 @@ public class Main {
                                 AppointmentController.create();
                                 break;
                             case "2":
+                                AppointmentController.update();
                                 break;
                             case "3":
+                                AppointmentController.delete();
                                 break;
                             case "4":
+                                AppointmentController.findAll();
                                 break;
                         }
                     }while (!Objects.equals(option, "5"));
